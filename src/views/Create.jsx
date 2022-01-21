@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useDispatch } from "react-redux";
+import { createContact } from "../stateManagement/actions/contactsActions";
 
 export const initialState={ //Estado inicial para los contactos nuevos
     name: "",
@@ -13,7 +15,7 @@ export const initialState={ //Estado inicial para los contactos nuevos
 const ButtonStyled = styled.button`
 `;
 
-const CreateStyled = styled.body`
+const CreateStyled = styled.section`
     height:100vh;
     padding:1vh;
     align-items: center;
@@ -60,17 +62,24 @@ const FormSubmit = styled.input`             //Estilo input boton
 
 export default function Create() {
     const [input, setInput] = useState(initialState); //Crea el estado que contiene los datos
-        
+    const dispatch = useDispatch();
+   
     function hadleInputChange(e) {               //Cuando se digita el input lo guarda en el estado
         setInput(prev => ({ ...prev, [e.target.name]: e.target.value }))
     };
+    
+    function onSubmit(e){                            
+        e.preventDefault();
+            dispatch (createContact(input));
+        }      
+ 
     
     return (
         <CreateStyled>
         <MenuL to="/">
                 <ButtonStyled>Volver</ButtonStyled>
             </MenuL>
-            <FormCont>
+            <FormCont onSubmit={onSubmit}>
                 <FormText name="name" placeholder="Nombre" onChange={hadleInputChange} />
                 <FormText name="phone" placeholder="Telefono" onChange={hadleInputChange} />
                 <FormText name="date" placeholder="AAAA-MM-DD" onChange={hadleInputChange} />
