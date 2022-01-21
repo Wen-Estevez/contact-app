@@ -73,7 +73,7 @@ export default function SearchBar() {
                 <ButtonStyled>Volver</ButtonStyled>
             </MenuL>
           <TextSearch
-            onChange={(e) => {      //Cuando cambia la ciudad digitada guarda el valor en el estado
+            onChange={(e) => {      //Cuando cambia el valor guarda el valor en el estado
                       e.preventDefault();
                       setContact(e.target.value);
             }}
