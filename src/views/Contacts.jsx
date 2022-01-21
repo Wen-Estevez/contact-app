@@ -3,6 +3,7 @@ import SearchBar from "../components/SearchBar";
 import { Link } from 'react-router-dom';
 import ContactCard from '../components/ContactCard';
 import { useSelector } from "react-redux";
+import fondo from '../assets/fondo.gif';
 
 const ButtonStyled = styled.button`
 `;
@@ -12,6 +13,9 @@ const ContactsStyled = styled.section`
     padding:1vh;
     align-items: center;
     justify-content:center;
+    background: url(${fondo}) no-repeat;
+    width: 206.5vh;
+    height: 100vh;
 `;
 
 const ContactListStyled = styled.section`
