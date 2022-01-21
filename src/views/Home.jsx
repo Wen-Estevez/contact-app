@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import crear from "../assets/crear.png";
+import { Link } from 'react-router-dom';
 
 const TituloStyled = styled.span`
 color: #f1c9e4;
@@ -24,6 +24,11 @@ const ButtonStyled = styled.button`
 const HomeStyled = styled.body`
 `;
 
+const MenuL = styled(Link)`      //Estilo link
+    text-decoration:none;
+    margin:0 auto;
+`;
+
 export default function Home() {
 
     return (
@@ -31,6 +36,12 @@ export default function Home() {
             <TituloStyled>Agenda de contactos </TituloStyled>
             <ButtonStyled>Crear Contactos</ButtonStyled>
             <ButtonStyled>Ver Agenda de contactos</ButtonStyled>
+            <MenuL to="/Create">
+                <ButtonStyled>Crear Contacto</ButtonStyled>
+            </MenuL>
+            <MenuL to="/Contacts">
+                <ButtonStyled>Ver Agenda de contactos</ButtonStyled>
+            </MenuL>
         </HomeStyled>
     )
 }
