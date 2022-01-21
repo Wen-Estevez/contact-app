@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import SearchBar from "../components/SearchBar";
 import { Link } from 'react-router-dom';
+import ContactCard from '../components/ContactCard';
+import { useSelector } from "react-redux";
 
 const ButtonStyled = styled.button`
 `;
 
-const ContactsStyled = styled.body`
+const ContactsStyled = styled.section`
     height:100vh;
     padding:1vh;
     align-items: center;
@@ -32,7 +34,7 @@ const MenuL = styled(Link)`      //Estilo link
 `;
 
 export default function Home() {
-
+const contacts = useSelector(state => state.contacts);
     return (
         <ContactsStyled>
             <SearchBar />
@@ -40,6 +42,14 @@ export default function Home() {
                 <ButtonStyled>Volver</ButtonStyled>
             </MenuL>
             <ContactListStyled>
+                {contacts?.map((contact) => <ContactCard
+                    key={contact.name}
+                    name={contact.name}
+                    phone={contact.phone}
+                    date={contact.date}
+                    location={contact.location}
+                    mail={contact.mail}
+                />)}
             </ContactListStyled>
         </ContactsStyled>
     )
