@@ -40,6 +40,7 @@ const ButtonStyled = styled.button`    //Boton volver
   width: 7rem;
   height: 2.1rem;
   right:0.5rem;
+  margin-left: 6%;
   border-radius: 15px 0px 0px 15px;
   color: #000;
   background: #fff;

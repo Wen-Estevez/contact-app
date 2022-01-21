@@ -10,7 +10,7 @@ const ContactsStyled = styled.section`
     align-items: center;
     justify-content:center;
     background: url(${fondo}) no-repeat;
-    width: 206.5vh;
+    width: 203vh;
     height: 100vh;
 `;
 
