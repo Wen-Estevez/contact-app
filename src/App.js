@@ -8,7 +8,7 @@ export default function App() {
     <>
       <Routes>
             <Route exact path="/" element={<Home/>}/>             {/*Home*/}
-            <Route exact path="/create" element={<Create/>}/>         {/*Crear raza*/}
+            <Route exact path="/Create" element={<Create/>}/>         {/*Crear raza*/}
             <Route exact path="/Contacts" element={<Contacts/>}/>       {/*Razas detalladas*/}
       </Routes>
     </>
