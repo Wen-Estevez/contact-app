@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
+import { searchByName } from '../stateManagement/actions/contactsActions';
+import { useDispatch } from "react-redux";
 //Formulario de busqueda
 
 const SubmitButton = styled.input`    //Boton buscar
@@ -57,16 +59,21 @@ const MenuL = styled(Link)`      //Estilo link
 `;
 
 export default function SearchBar() {
-    const [contact, setContact] = useState(""); 
-    console.log(contact)
+  const dispatch = useDispatch();
+  const [contact, setContact] = useState(""); 
+  
+  function search(e) {
+    e.preventDefault();
+    dispatch(searchByName(contact));
+  }
+  
       return (
-        <form onSubmit={(e) => {    //Formulario, y funcion de buscar en la app
-          }}>
-                          <MenuL to="/">
+        <form onSubmit={(e) => {search(e)}}>
+            <MenuL to="/">
                 <ButtonStyled>Volver</ButtonStyled>
             </MenuL>
           <TextSearch
-            onChange={(e) => {      //Cuando cambia la ciudad digitada guarda el valor en el estado
+            onChange={(e) => {      //Cuando cambia el valor guarda el valor en el estado
                       e.preventDefault();
                       setContact(e.target.value);
             }}
