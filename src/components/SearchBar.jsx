@@ -37,7 +37,7 @@ const TextSearch = styled.input`      //Barra de busqueda
 
 export default function SearchBar() {
     const [contact, setContact] = useState(""); 
-  
+    console.log(contact)
       return (
         <form onSubmit={(e) => {    //Formulario, y funcion de buscar en la app
           }}>
@@ -45,7 +45,7 @@ export default function SearchBar() {
           <TextSearch
             onChange={(e) => {      //Cuando cambia la ciudad digitada guarda el valor en el estado
                       e.preventDefault();
-                      setContact(e);
+                      setContact(e.target.value);
             }}
             type="text"
             placeholder="¿Busca un contacto?"
