@@ -13,7 +13,8 @@ Ejecutar el comando npm install por consola. De esta forma, se instalarán todas
 ### Levantar el servidor
 Ejecutar el comando npm start por consola, comienza a correr  la app.
 
+Version node utilizada
 v16.13.2
-Version npm utilizada
 
+Version npm utilizada
 v8.1.1
