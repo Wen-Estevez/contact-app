@@ -20,17 +20,34 @@ const ButtonStyled = styled.button`
 export default function SearchBar({name,phone,date,location,mail}) { 
     const dispatch = useDispatch();
     
+    function calculateAge(date) {
+    var today = new Date();
+    var birth = new Date(date);
+    var age = today.getFullYear() - birth.getFullYear();
+    var m = today.getMonth() - birth.getMonth();
+
+    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
+        age--;
+    }
+
+    return age;
+}
+    const contactAge = calculateAge(date);
+    
     function onClose(id) {
         dispatch(deleteContact(id));
     }
     return (
         <CardContainer>
             <ButtonStyled onClick={()=>onClose(name)}>X</ButtonStyled>
-            <TitleText>{name}</TitleText>
-            <TextStyled>{phone}</TextStyled>
-            <TextStyled>{date}</TextStyled>
-            <TextStyled>{location}</TextStyled>
-            <TextStyled>{mail}</TextStyled>
+            <TitleText>Nombre:{name}</TitleText>
+            <TextStyled>Telefono:{phone}</TextStyled>
+            <TextStyled>Fecha de nacimiento:{date}</TextStyled>
+            <TextStyled>Direccion:{location}</TextStyled>
+            <TextStyled>Correo:{mail}</TextStyled>
+            <TextStyled>Edad:{contactAge}</TextStyled>
         </CardContainer>    
     )
+}
+
 }
