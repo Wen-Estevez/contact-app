@@ -22,7 +22,7 @@ const ButtonStyled = styled.button`
 
 `;
 
-const HomeStyled = styled.body`
+const HomeStyled = styled.section`
 background: url(${fondo}) no-repeat;
 width: 206.5vh;
 height: 100vh;
