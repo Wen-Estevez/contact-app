@@ -34,7 +34,7 @@ const TextSearch = styled.input`      //Barra de busqueda
         padding:0.25rem 4rem 0.25rem 0.25rem;
     }
 `;
-const ButtonStyled = styled.input`    //Boton volver
+const ButtonStyled = styled.button`    //Boton volver
   width: 7rem;
   height: 2.1rem;
   right:0.5rem;
