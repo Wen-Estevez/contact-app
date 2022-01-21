@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-
+import { Link } from 'react-router-dom';
 //Formulario de busqueda
 
 const SubmitButton = styled.input`    //Boton buscar
@@ -34,14 +34,21 @@ const TextSearch = styled.input`      //Barra de busqueda
         padding:0.25rem 4rem 0.25rem 0.25rem;
     }
 `;
-
+const MenuL = styled(Link)`      //Estilo link
+    text-decoration:none;
+    margin:0 auto;
+`;
+const ButtonStyled = styled.button`
+`;
 export default function SearchBar() {
     const [contact, setContact] = useState(""); 
     console.log(contact)
       return (
         <form onSubmit={(e) => {    //Formulario, y funcion de buscar en la app
           }}>
-              
+                          <MenuL to="/">
+                <ButtonStyled>Volver</ButtonStyled>
+            </MenuL>
           <TextSearch
             onChange={(e) => {      //Cuando cambia la ciudad digitada guarda el valor en el estado
                       e.preventDefault();

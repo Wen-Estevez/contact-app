@@ -104,7 +104,8 @@ export default function Create() {
     
     function onSubmit(e){                            
         e.preventDefault();
-            dispatch (createContact(input));
+        dispatch(createContact(input));
+        e.target.reset();
         }      
  
     
@@ -114,11 +115,11 @@ export default function Create() {
                 <ButtonStyled>Volver</ButtonStyled>
             </MenuL>
             <FormCont onSubmit={onSubmit}>
-                <FormText name="name" placeholder="Nombre" onChange={hadleInputChange} />
-                <FormText name="phone" placeholder="Telefono" onChange={hadleInputChange} />
-                <FormText name="date" placeholder="AAAA-MM-DD" onChange={hadleInputChange} />
+                <FormText required name="name" placeholder="Nombre" onChange={hadleInputChange} />
+                <FormText type="tel" name="phone" placeholder="Telefono" onChange={hadleInputChange} />
+                <FormText type="date" name="date" placeholder="AAAA-MM-DD" onChange={hadleInputChange} />
                 <FormText name="location" placeholder="Direccion:" onChange={hadleInputChange} />
-                <FormText name="mail" placeholder="Email:" onChange={hadleInputChange} />
+                <FormText type="email" name="mail" placeholder="Email:" onChange={hadleInputChange} />
                 <FormSubmit type="submit" value="Crear contacto"/>
             </FormCont>
         </CreateStyled>

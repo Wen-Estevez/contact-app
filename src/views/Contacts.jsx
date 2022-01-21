@@ -1,12 +1,8 @@
 import styled from "styled-components";
 import SearchBar from "../components/SearchBar";
-import { Link } from 'react-router-dom';
 import ContactCard from '../components/ContactCard';
 import { useSelector } from "react-redux";
 import fondo from '../assets/fondo.gif';
-
-const ButtonStyled = styled.button`
-`;
 
 const ContactsStyled = styled.section`
     height:100vh;
@@ -32,19 +28,11 @@ const ContactListStyled = styled.section`
      }
 `;
 
-const MenuL = styled(Link)`      //Estilo link
-    text-decoration:none;
-    margin:0 auto;
-`;
-
 export default function Home() {
 const contacts = useSelector(state => state.contacts);
     return (
         <ContactsStyled>
             <SearchBar />
-            <MenuL to="/">
-                <ButtonStyled>Volver</ButtonStyled>
-            </MenuL>
             <ContactListStyled>
                 {contacts?.map((contact) => <ContactCard
                     key={contact.name}
