@@ -1,4 +1,4 @@
-import {CREATE_CONTACT}from '../actions/contactsActions.js';
+import {CREATE_CONTACT,DELETE_CONTACT}from '../actions/contactsActions.js';
 
 //Reducer para los contactos
 
@@ -11,6 +11,10 @@ const  contactsReducer = (state=INITIAL_STATE,{type,payload})=>{
         case CREATE_CONTACT: return{ 
             ...state,                   //crea un nuevo contacto
             contacts: state.contacts.concat(payload)
+        }
+        case DELETE_CONTACT: return{ 
+            ...state,                   //crea un nuevo contacto
+            contacts: state.contacts.filter(contact => contact.name !== payload)
            }
         default: return state;
     }
