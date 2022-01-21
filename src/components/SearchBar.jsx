@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
-import { searchByName } from '../stateManagement/actions/contactsActions';
+import { searchByName,searchByNumber,searchByMail } from '../stateManagement/actions/contactsActions';
 import { useDispatch } from "react-redux";
 //Formulario de busqueda
 
@@ -65,7 +65,9 @@ export default function SearchBar() {
   
   function search(e) {
     e.preventDefault();
-    dispatch(searchByName(contact));
+    if (/^[^@]+@[^@]+\.[a-zA-Z]{2,}$/i.test(contact)) { dispatch(searchByMail(contact)) }
+    else if (!isNaN(contact)) { dispatch(searchByNumber(contact)) }
+    else dispatch(searchByName(contact))
   }
   
       return (
